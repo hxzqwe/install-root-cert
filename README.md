@@ -1,8 +1,16 @@
 # Ansible Role: Install Root CA Certificate
 
-**Import Root CA cert file to `files/ca` directory**
+Supports the following Operating Systems:
 
-## Example Playbooks
+- CentOS 6+
+- Ubuntu 14.04+
+
+
+## Usage
+
+**Import Root CA cert file to `files` directory**
+
+Example Playbooks
 
 ```yaml
 - hosts: all
