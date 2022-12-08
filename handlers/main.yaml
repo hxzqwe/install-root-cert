@@ -1,0 +1,8 @@
+- name: update trusted ca debian
+  shell: /usr/sbin/update-ca-certificates
+
+- name: update trusted ca redhat >= 7
+  shell: /bin/update-ca-trust
+
+- name: update trusted ca redhat < 7
+  shell: /bin/update-ca-trust enable

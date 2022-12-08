@@ -1,0 +1,41 @@
+- name: copy certificate authority to trusted ca path of the debian os
+  tags: ca
+  copy:
+    src: '{{ item }}'
+    dest: '{{ ca_path_debian }}/'
+    owner: root
+    group: root
+    mode: 0644
+  with_fileglob:
+    - 'ca/*'
+  notify:
+    - update trusted ca debian
+  when: ansible_os_family == "Debian"
+
+- name: copy certificate authority to trusted ca path of the (RedHat >= 7) os
+  tags: ca
+  copy:
+    src: '{{ item }}'
+    dest: '{{ ca_path_RedHat7 }}/'
+    owner: root
+    group: root
+    mode: 0644
+  with_fileglob:
+    - 'ca/*'
+  notify:
+    - update trusted ca redhat >= 7
+  when: ansible_os_family == "RedHat" and ansible_distribution_major_version|int >= 7
+
+- name: copy certificate authority to trusted ca path of the (RedHat < 7) os
+  tags: ca
+  copy:
+    src: '{{ item }}'
+    dest: '{{ ca_path_RedHat6 }}/'
+    owner: root
+    group: root
+    mode: 0644
+  with_fileglob:
+    - 'ca/*'
+  notify:
+    - update trusted ca redhat < 7
+  when: ansible_os_family == "RedHat" and ansible_distribution_major_version|int < 7

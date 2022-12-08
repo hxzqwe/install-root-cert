@@ -1,0 +1,3 @@
+ca_path_debian: /usr/local/share/ca-certificates/
+ca_path_RedHat6: /usr/local/share/ca-certificates/
+ca_path_RedHat7: /etc/pki/ca-trust/source/anchors/
