@@ -1,6 +1,6 @@
 # Ansible Role: Install Root CA Certificate
 
-**Import Root CA cert file to `files` directory**
+**Import Root CA cert file to `files/ca` directory**
 
 ## Example Playbooks
 
